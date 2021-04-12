@@ -22,5 +22,9 @@ get "/callback" do
     .headers("Authorization" => "token #{access_token}")
     .get("https://api.github.com/user")
   pp response.parse
-  redirect to "/"
+  # redirect to "/"
+  data = response.parse
+  @name = data["name"]
+  @image = data["avatar_url"]
+  erb "<h1>Name: <%= @name %></h1><img src=<%= @image %>>"
 end
