@@ -5,7 +5,7 @@ enable :sessions
 
 get "/" do
   session[:state] = SecureRandom.hex
-  erb "<a href='https://accounts.spotify.com/authorize?client_id=#{ENV["SPOTIFY_CLIENT_ID"]}&response_type=code&redirect_uri=http://localhost:4567/callback&state=#{session[:state]}'>Authorize Spotify</a>"
+  erb "<a href='https://accounts.spotify.com/authorize?client_id=#{ENV["SPOTIFY_CLIENT_ID"]}&response_type=code&redirect_uri=http://localhost:4567/callback&state=#{session[:state]}&scope=user-read-private user-read-email playlist-modify-public'>Authorize Spotify</a>"
 end
 
 get "/callback" do
