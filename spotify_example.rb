@@ -4,10 +4,12 @@ require "http"
 enable :sessions
 
 get "/" do
-  erb "<a href='https://accounts.spotify.com/authorize?client_id=#{ENV["SPOTIFY_CLIENT_ID"]}&response_type=code&redirect_uri=http://localhost:4567/callback'>Authorize Spotify</a>"
+  session[:state] = SecureRandom.hex
+  erb "<a href='https://accounts.spotify.com/authorize?client_id=#{ENV["SPOTIFY_CLIENT_ID"]}&response_type=code&redirect_uri=http://localhost:4567/callback&state=#{session[:state]}'>Authorize Spotify</a>"
 end
 
 get "/callback" do
+  redirect to "/" if params[:state] != session[:state]
   response = HTTP
     .post(
       "https://accounts.spotify.com/api/token",
