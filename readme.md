@@ -33,5 +33,5 @@ We will be making OAuth requests to [GitHub](https://github.com/join), [Spotify]
 You can also register an OAuth application in each service to get developer credentials in advance. We'll go over the process of registering OAuth applications during the workshop in case you have any issues.
 
 - [GitHub OAuth registration](https://docs.github.com/en/developers/apps/creating-an-oauth-app)
-- [Spotfy OAuth credentials](https://developer.spotify.com/documentation/general/guides/app-settings/#register-your-app)
+- [Spotify OAuth credentials](https://developer.spotify.com/documentation/general/guides/app-settings/#register-your-app)
 - [Google OAuth credentials](https://support.google.com/cloud/answer/6158849?hl=en)
